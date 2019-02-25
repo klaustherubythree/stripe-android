@@ -99,6 +99,30 @@ public class PaymentMethod extends StripeJsonModel {
         return paymentMethod;
     }
 
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return this == obj || (obj instanceof PaymentMethod && typedEquals((PaymentMethod) obj));
+    }
+
+    private boolean typedEquals(@NonNull PaymentMethod paymentMethod) {
+        return ObjectUtils.equals(id, paymentMethod.id)
+                && created == paymentMethod.created
+                && liveMode == paymentMethod.liveMode
+                && ObjectUtils.equals(type, paymentMethod.type)
+                && ObjectUtils.equals(billingDetails, paymentMethod.billingDetails)
+                && ObjectUtils.equals(card, paymentMethod.card)
+                && ObjectUtils.equals(sepaDebit, paymentMethod.sepaDebit)
+                && ObjectUtils.equals(ideal, paymentMethod.ideal)
+                && ObjectUtils.equals(customerId, paymentMethod.customerId)
+                && ObjectUtils.equals(metadata, paymentMethod.metadata);
+    }
+
+    @Override
+    public int hashCode() {
+        return ObjectUtils.hash(id, created, liveMode, type, billingDetails, card, sepaDebit,
+                ideal, customerId, metadata);
+    }
+
     public static final class Builder {
         private String mId;
         private long mCreated;
