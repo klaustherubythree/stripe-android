@@ -1,5 +1,13 @@
 # CHANGELOG
 
+### 8.5.0 2019-03-04
+* Fix TalkBack crash in `CardInputWidget` [#817]
+* Make `StripeSourceTypeModel` public [#809]
+* Create `ErrorMessageTranslator` and default implementation [#807]
+* Pass `StripeError` in onError [#806]
+* Clean up `PaymentIntent` [#805]
+* Upgrade Android Gradle Plugin to 3.3.1 [#802]
+
 ### 8.4.0 2019-02-06
 * Add StripeError field to StripeException [#793]
 * Add support for creating a CVC update Token [#787]
